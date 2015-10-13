@@ -23,3 +23,20 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:recyclerview-v7:23.0.1'
 }
+
+apply plugin: 'maven'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "") {
+                authentication(userName: "", password: "")
+            }
+
+            pom.version = "1.0-SNAPSHOT"
+            pom.artifactId = "lib_genericadapter"
+            pom.groupId = "com.lfm.recyclerviewgenericadapter"
+            pom.name = "Lib RV Generic Adapter"
+        }
+    }
+}
