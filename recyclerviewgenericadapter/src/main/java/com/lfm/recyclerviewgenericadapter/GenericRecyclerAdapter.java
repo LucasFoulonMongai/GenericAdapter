@@ -1,4 +1,4 @@
-package com.lfm.recyclerviewgenericadaptersample.recyclerview.utils;
+package com.lfm.recyclerviewgenericadapter;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-import com.lfm.recyclerviewgenericadaptersample.R;
 
 import java.util.ArrayList;
 import java.util.Collection;

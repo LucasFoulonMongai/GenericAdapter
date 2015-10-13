@@ -1,4 +1,4 @@
-package com.lfm.recyclerviewgenericadaptersample.recyclerview.utils;
+package com.lfm.recyclerviewgenericadapter;
 
 import android.content.Context;
 import android.os.Bundle;
