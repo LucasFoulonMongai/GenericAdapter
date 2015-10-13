@@ -2,14 +2,14 @@
 
 
 include this library through build.gradle using theses lines :
-repositories {
-  ...
-    maven { url 'https://dl.bintray.com/lucasfm/maven/' }
-}
 
-dependencies {
+    repositories {
+      ...
+      maven { url 'https://dl.bintray.com/lucasfm/maven/' }
+    }
+    dependencies {
     compile 'com.lfm.recyclerviewgenericadapter:rvgenericadapter:1.0.0'
-}
+    }
 
 How to use it:
 Implement the ViewPresenter class and use it as a parameter of the GenericRecylerAdapter :
