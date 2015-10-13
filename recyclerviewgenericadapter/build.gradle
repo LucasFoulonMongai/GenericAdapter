@@ -24,19 +24,29 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23.0.1'
 }
 
-apply plugin: 'maven'
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'rvgenericadapter'
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository(url: "") {
-                authentication(userName: "", password: "")
-            }
+    publishedGroupId = 'com.lfm.recycleviewgenericadapter'
+    libraryName = 'RVGenericAdapter'
+    artifact = 'rvgenericadapter'
 
-            pom.version = "1.0-SNAPSHOT"
-            pom.artifactId = "lib_genericadapter"
-            pom.groupId = "com.lfm.recyclerviewgenericadapter"
-            pom.name = "Lib RV Generic Adapter"
-        }
-    }
+    libraryDescription = 'A Generic Adapter for Recycler View in Android'
+
+    siteUrl = 'https://github.com/LucasFoulonMongai/RecyclerViewGenericAdapterSample'
+    gitUrl = 'https://github.com/LucasFoulonMongai/RecyclerViewGenericAdapterSample.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'lucasfm'
+    developerName = 'Lucas Foulon-Mongai'
+    developerEmail = 'lucas.foulon.mongai@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
 }
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+
