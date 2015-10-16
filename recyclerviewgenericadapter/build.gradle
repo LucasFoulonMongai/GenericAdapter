@@ -26,11 +26,11 @@ dependencies {
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'rvgenericadapter'
+    bintrayName = 'rvgenadapter'
 
-    publishedGroupId = 'com.lfm.recycleviewgenericadapter'
+    publishedGroupId = 'com.lfm'
     libraryName = 'RVGenericAdapter'
-    artifact = 'rvgenericadapter'
+    artifact = 'rvgenadapter'
 
     libraryDescription = 'A Generic Adapter for Recycler View in Android'
 
