@@ -28,7 +28,7 @@ ext {
     bintrayRepo = 'maven'
     bintrayName = 'rvgenadapter'
 
-    publishedGroupId = 'com.lfm'
+    publishedGroupId = 'com.lfm.rvgenadapter'
     libraryName = 'RVGenericAdapter'
     artifact = 'rvgenadapter'
 

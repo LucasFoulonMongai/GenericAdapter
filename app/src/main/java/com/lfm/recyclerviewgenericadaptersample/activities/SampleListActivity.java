@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
-import com.lfm.recyclerviewgenericadapter.GenericRecyclerAdapter;
+import com.lfm.rvgenadapter.GenericRecyclerAdapter;
 import com.lfm.recyclerviewgenericadaptersample.R;
 import com.lfm.recyclerviewgenericadaptersample.models.SampleItem;
 import com.lfm.recyclerviewgenericadaptersample.presenters.SampleItemPresenter;

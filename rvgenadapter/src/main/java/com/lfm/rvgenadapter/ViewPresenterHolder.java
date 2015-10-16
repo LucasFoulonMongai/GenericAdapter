@@ -1,4 +1,4 @@
-package com.lfm.recyclerviewgenericadapter;
+package com.lfm.rvgenadapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

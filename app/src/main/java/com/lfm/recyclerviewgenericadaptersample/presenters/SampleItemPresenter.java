@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.lfm.recyclerviewgenericadapter.ViewPresenter;
+import com.lfm.rvgenadapter.ViewPresenter;
 import com.lfm.recyclerviewgenericadaptersample.R;
 import com.lfm.recyclerviewgenericadaptersample.models.SampleItem;
 

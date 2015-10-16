@@ -1,4 +1,4 @@
-package com.lfm.recyclerviewgenericadapter;
+package com.lfm.rvgenadapter;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
