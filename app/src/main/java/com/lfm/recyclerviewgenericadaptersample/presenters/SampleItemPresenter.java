@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.lfm.rvgenadapter.ViewPresenter;
 import com.lfm.recyclerviewgenericadaptersample.R;
 import com.lfm.recyclerviewgenericadaptersample.models.SampleItem;
+import com.lfm.rvgenadapter.ViewPresenter;
 
 /**
  * Created by mogwai on 13/10/15.
@@ -31,14 +31,14 @@ public class SampleItemPresenter extends ViewPresenter<SampleItem> {
 
         mapViews(getView());
 
-        if(params != null) {
+        if (params != null) {
             int color = params.getInt("color");
 
-            if(color !=-1){
+            if (color != -1) {
                 itemSampleDescriptionView.setTextColor(color);
             }
         }
-        if(getOnClickListener() != null) {
+        if (getOnClickListener() != null) {
             view.setOnClickListener(getOnClickListener());
         }
     }
@@ -50,11 +50,15 @@ public class SampleItemPresenter extends ViewPresenter<SampleItem> {
 
     @Override
     public void refresh() {
-        if(view == null){
+        if (view == null) {
             return;
         }
 
         SampleItem data = getData();
+
+        view.setTag(R.id.tag_position, getPosition());
+        view.setTag(R.id.tag_content, data);
+
         if (data != null) {
             view.setVisibility(View.VISIBLE);
         } else {
@@ -70,7 +74,7 @@ public class SampleItemPresenter extends ViewPresenter<SampleItem> {
     @Override
     public void setOnClickListener(View.OnClickListener onClickListener) {
         super.setOnClickListener(onClickListener);
-        if(view != null) {
+        if (view != null) {
             view.setOnClickListener(onClickListener);
         }
     }

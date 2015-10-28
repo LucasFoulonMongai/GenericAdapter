@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 public abstract class ViewPresenter<E> {
     private View.OnClickListener onClickListener;
     private E data;
+    private int position = -1;
 
     public abstract void initViewPresenter(Context context, ViewGroup parent, Bundle params);
 
@@ -18,11 +19,16 @@ public abstract class ViewPresenter<E> {
 
     public abstract void refresh();
 
-    public void swapData(E data) {
-        if(this.data != data) {
+    public void swapData(int position, E data) {
+        if (this.data != data && this.position != position) {
+            this.position = position;
             this.data = data;
             refresh();
         }
+    }
+
+    public int getPosition() {
+        return position;
     }
 
     public E getData() {

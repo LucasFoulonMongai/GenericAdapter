@@ -53,9 +53,7 @@ public class GenericRecyclerAdapter<E> extends RecyclerView.Adapter<ViewPresente
 
     @Override
     public void onBindViewHolder(ViewPresenterHolder<E> holder, int position) {
-        holder.swapData(items.get(position));
-        holder.setTag(R.id.tag_content, items.get(position));
-        holder.setTag(R.id.tag_position, position);
+        holder.swapData(position, items.get(position));
     }
 
     @Override

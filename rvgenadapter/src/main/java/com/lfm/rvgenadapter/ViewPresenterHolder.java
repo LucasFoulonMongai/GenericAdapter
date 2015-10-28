@@ -20,15 +20,11 @@ public class ViewPresenterHolder<E> extends RecyclerView.ViewHolder {
         return viewPresenter;
     }
 
-    public void swapData(E data) {
-        viewPresenter.swapData(data);
+    public void swapData(int position, E data) {
+        viewPresenter.swapData(position, data);
     }
 
     public View getView() {
         return view;
-    }
-
-    public void setTag(int idTag, Object tag) {
-        view.setTag(idTag, tag);
     }
 }
