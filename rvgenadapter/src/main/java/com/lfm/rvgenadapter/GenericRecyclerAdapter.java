@@ -37,6 +37,15 @@ public class GenericRecyclerAdapter<E> extends RecyclerView.Adapter<ViewPresente
         this.onClickListener = onClickListener;
     }
 
+    public void setParams(Bundle params) {
+        this.params = params;
+        notifyDataSetChanged();
+    }
+
+    public Bundle getParams() {
+        return params;
+    }
+
     @Override
     public ViewPresenterHolder<E> onCreateViewHolder(ViewGroup parent, int viewType) {
         return newPresenter(parent);
