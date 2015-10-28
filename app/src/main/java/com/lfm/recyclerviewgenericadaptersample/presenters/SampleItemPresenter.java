@@ -26,7 +26,7 @@ public class SampleItemPresenter extends ViewPresenter<SampleItem> {
 
 
     @Override
-    public void initViewPresenter(Context context, ViewGroup parent, Bundle params) {
+    public void initViewPresenter(Context context, ViewGroup parent, Bundle params, View.OnClickListener onClickListener) {
         this.view = LayoutInflater.from(context).inflate(R.layout.item_sample, parent, false);
 
         mapViews(getView());
@@ -38,9 +38,7 @@ public class SampleItemPresenter extends ViewPresenter<SampleItem> {
                 itemSampleDescriptionView.setTextColor(color);
             }
         }
-        if (getOnClickListener() != null) {
-            view.setOnClickListener(getOnClickListener());
-        }
+        view.setOnClickListener(onClickListener);
     }
 
     private void mapViews(View view) {
@@ -69,14 +67,6 @@ public class SampleItemPresenter extends ViewPresenter<SampleItem> {
         itemSampleTitreView.setText(data.getTitre());
         itemSampleDescriptionView.setText(data.getDescription());
 
-    }
-
-    @Override
-    public void setOnClickListener(View.OnClickListener onClickListener) {
-        super.setOnClickListener(onClickListener);
-        if (view != null) {
-            view.setOnClickListener(onClickListener);
-        }
     }
 
     @Override

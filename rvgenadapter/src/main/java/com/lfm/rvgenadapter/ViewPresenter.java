@@ -9,11 +9,10 @@ import android.view.ViewGroup;
  * Created by mogwai on 13/10/15.
  */
 public abstract class ViewPresenter<E> {
-    private View.OnClickListener onClickListener;
     private E data;
     private int position = -1;
 
-    public abstract void initViewPresenter(Context context, ViewGroup parent, Bundle params);
+    public abstract void initViewPresenter(Context context, ViewGroup parent, Bundle params, View.OnClickListener onClickListener);
 
     public abstract View getView();
 
@@ -33,13 +32,5 @@ public abstract class ViewPresenter<E> {
 
     public E getData() {
         return data;
-    }
-
-    public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.onClickListener = onClickListener;
-    }
-
-    public View.OnClickListener getOnClickListener() {
-        return onClickListener;
     }
 }

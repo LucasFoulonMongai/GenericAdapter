@@ -64,8 +64,7 @@ public class GenericRecyclerAdapter<E> extends RecyclerView.Adapter<ViewPresente
     public ViewPresenterHolder<E> newPresenter(ViewGroup parent) {
         try {
             ViewPresenter<E> viewPresenter = classPresenter.newInstance();
-            viewPresenter.initViewPresenter(context, parent, params);
-            viewPresenter.setOnClickListener(onClickListener);
+            viewPresenter.initViewPresenter(context, parent, params, onClickListener);
             return new ViewPresenterHolder<>(viewPresenter);
         } catch (InstantiationException e) {
             e.printStackTrace();
