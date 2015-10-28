@@ -8,7 +8,7 @@ include this library through build.gradle using theses lines :
       maven { url 'https://dl.bintray.com/lucasfm/maven/' }
     }
     dependencies {
-    compile 'com.lfm.rvgenadapter:rvgenadapter:1.0.1'
+    compile 'com.lfm.rvgenadapter:rvgenadapter:1.0.2'
     }
 
 How to use it:

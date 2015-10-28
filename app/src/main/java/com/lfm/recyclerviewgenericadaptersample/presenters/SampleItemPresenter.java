@@ -48,8 +48,6 @@ public class SampleItemPresenter extends ViewPresenter<SampleItem> {
         itemSampleDescriptionView = (TextView) view.findViewById(R.id.itemSampleDescriptionView);
     }
 
-
-
     @Override
     public void refresh() {
         if(view == null){

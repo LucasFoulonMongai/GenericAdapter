@@ -6,8 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -23,14 +21,15 @@ public class GenericRecyclerAdapter<E> extends RecyclerView.Adapter<ViewPresente
     private Context context;
     private Bundle params;
 
-    public GenericRecyclerAdapter(Context context, Collection<E> items, Class<? extends ViewPresenter<E>> classPresenter){
-        this(context,items,classPresenter, null, null);
+    public GenericRecyclerAdapter(Context context, Collection<E> items, Class<? extends ViewPresenter<E>> classPresenter) {
+        this(context, items, classPresenter, null, null);
     }
 
-    public GenericRecyclerAdapter(Context context, Collection<E> items, Class<? extends ViewPresenter<E>> classPresenter, View.OnClickListener onClickListener){
-        this(context,items,classPresenter, onClickListener, null);
+    public GenericRecyclerAdapter(Context context, Collection<E> items, Class<? extends ViewPresenter<E>> classPresenter, View.OnClickListener onClickListener) {
+        this(context, items, classPresenter, onClickListener, null);
     }
-    public GenericRecyclerAdapter(Context context, Collection<E> items, Class<? extends ViewPresenter<E>> classPresenter, View.OnClickListener onClickListener,  Bundle params) {
+
+    public GenericRecyclerAdapter(Context context, Collection<E> items, Class<? extends ViewPresenter<E>> classPresenter, View.OnClickListener onClickListener, Bundle params) {
         this.items = new ArrayList<>(items);
         this.classPresenter = classPresenter;
         this.context = context;
@@ -40,7 +39,7 @@ public class GenericRecyclerAdapter<E> extends RecyclerView.Adapter<ViewPresente
 
     @Override
     public ViewPresenterHolder<E> onCreateViewHolder(ViewGroup parent, int viewType) {
-            return newPresenter(parent);
+        return newPresenter(parent);
     }
 
     @Override
@@ -77,5 +76,13 @@ public class GenericRecyclerAdapter<E> extends RecyclerView.Adapter<ViewPresente
     public void setItems(Collection<E> items) {
         this.items = new ArrayList<>(items);
         notifyDataSetChanged();
+    }
+
+    public List<E> getItems() {
+        return items;
+    }
+
+    public E getItem(int position) {
+        return items.get(position);
     }
 }
