@@ -33,4 +33,8 @@ public abstract class ViewPresenter<E> {
     public E getData() {
         return data;
     }
+
+    public void onNewParams(Bundle params){
+
+    }
 }

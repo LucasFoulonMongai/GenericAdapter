@@ -20,6 +20,7 @@ public class GenericRecyclerAdapter<E> extends RecyclerView.Adapter<ViewPresente
     private Class<? extends ViewPresenter<E>> classPresenter;
     private Context context;
     private Bundle params;
+    private boolean paramsInvalidated = false;
 
     public GenericRecyclerAdapter(Context context, Collection<E> items, Class<? extends ViewPresenter<E>> classPresenter) {
         this(context, items, classPresenter, null, null);
@@ -39,6 +40,7 @@ public class GenericRecyclerAdapter<E> extends RecyclerView.Adapter<ViewPresente
 
     public void setParams(Bundle params) {
         this.params = params;
+        paramsInvalidated = true;
         notifyDataSetChanged();
     }
 
@@ -53,6 +55,9 @@ public class GenericRecyclerAdapter<E> extends RecyclerView.Adapter<ViewPresente
 
     @Override
     public void onBindViewHolder(ViewPresenterHolder<E> holder, int position) {
+        if(paramsInvalidated){
+            holder.setParams(params);
+        }
         holder.swapData(position, items.get(position));
     }
 
