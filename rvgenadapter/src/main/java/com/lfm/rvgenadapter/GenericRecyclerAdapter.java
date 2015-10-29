@@ -21,6 +21,7 @@ public class GenericRecyclerAdapter<E> extends RecyclerView.Adapter<ViewPresente
     private Context context;
     private Bundle params;
     private boolean paramsInvalidated = false;
+    private boolean onClickInvalidated = false;
 
     public GenericRecyclerAdapter(Context context, Collection<E> items, Class<? extends ViewPresenter<E>> classPresenter) {
         this(context, items, classPresenter, null, null);
@@ -55,8 +56,11 @@ public class GenericRecyclerAdapter<E> extends RecyclerView.Adapter<ViewPresente
 
     @Override
     public void onBindViewHolder(ViewPresenterHolder<E> holder, int position) {
-        if(paramsInvalidated){
+        if (paramsInvalidated) {
             holder.setParams(params);
+        }
+        if (onClickInvalidated) {
+            holder.setOnClickListener(onClickListener);
         }
         holder.swapData(position, items.get(position));
     }
@@ -81,6 +85,7 @@ public class GenericRecyclerAdapter<E> extends RecyclerView.Adapter<ViewPresente
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
         this.onClickListener = onClickListener;
+        onClickInvalidated = true;
         notifyDataSetChanged();
     }
 

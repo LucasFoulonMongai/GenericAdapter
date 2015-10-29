@@ -19,11 +19,9 @@ public abstract class ViewPresenter<E> {
     public abstract void refresh();
 
     public void swapData(int position, E data) {
-        if (this.data != data && this.position != position) {
-            this.position = position;
-            this.data = data;
-            refresh();
-        }
+        this.position = position;
+        this.data = data;
+        refresh();
     }
 
     public int getPosition() {
@@ -34,7 +32,11 @@ public abstract class ViewPresenter<E> {
         return data;
     }
 
-    public void onNewParams(Bundle params){
+    public void onNewParams(Bundle params) {
+
+    }
+
+    public void onNewOnClickListener(View.OnClickListener onClickListener) {
 
     }
 }

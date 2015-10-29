@@ -32,4 +32,8 @@ public class ViewPresenterHolder<E> extends RecyclerView.ViewHolder {
     public void setParams(Bundle params) {
         this.viewPresenter.onNewParams(params);
     }
+
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        this.viewPresenter.onNewOnClickListener(onClickListener);
+    }
 }
