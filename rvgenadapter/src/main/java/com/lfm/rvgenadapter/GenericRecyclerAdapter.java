@@ -62,7 +62,7 @@ public class GenericRecyclerAdapter<E> extends RecyclerView.Adapter<ViewPresente
         if (onClickInvalidated) {
             holder.setOnClickListener(onClickListener);
         }
-        holder.swapData(position, items.get(position));
+        holder.swapData(position, getItem(position));
     }
 
     @Override
