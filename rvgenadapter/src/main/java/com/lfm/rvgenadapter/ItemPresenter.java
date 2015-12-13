@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 /**
  * Created by mogwai on 13/10/15.
  */
-public abstract class ViewPresenter<E> {
+public abstract class ItemPresenter<E> {
     private E data;
     private int position = -1;
 

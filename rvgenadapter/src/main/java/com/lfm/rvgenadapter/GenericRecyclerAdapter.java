@@ -13,30 +13,34 @@ import java.util.List;
 /**
  * Created by mogwai on 13/10/15.
  */
-public class GenericRecyclerAdapter<E> extends RecyclerView.Adapter<ViewPresenterHolder<E>> {
+public class GenericRecyclerAdapter<E> extends RecyclerView.Adapter<ItemPresenterHolder<E>> {
 
     private View.OnClickListener onClickListener;
     private List<E> items;
-    private Class<? extends ViewPresenter<E>> classPresenter;
+    private Class<? extends ItemPresenter<E>> classPresenter;
     private Context context;
     private Bundle params;
     private boolean paramsInvalidated = false;
     private boolean onClickInvalidated = false;
 
-    public GenericRecyclerAdapter(Context context, Collection<E> items, Class<? extends ViewPresenter<E>> classPresenter) {
+    public GenericRecyclerAdapter(Context context, Collection<E> items, Class<? extends ItemPresenter<E>> classPresenter) {
         this(context, items, classPresenter, null, null);
     }
 
-    public GenericRecyclerAdapter(Context context, Collection<E> items, Class<? extends ViewPresenter<E>> classPresenter, View.OnClickListener onClickListener) {
+    public GenericRecyclerAdapter(Context context, Collection<E> items, Class<? extends ItemPresenter<E>> classPresenter, View.OnClickListener onClickListener) {
         this(context, items, classPresenter, onClickListener, null);
     }
 
-    public GenericRecyclerAdapter(Context context, Collection<E> items, Class<? extends ViewPresenter<E>> classPresenter, View.OnClickListener onClickListener, Bundle params) {
+    public GenericRecyclerAdapter(Context context, Collection<E> items, Class<? extends ItemPresenter<E>> classPresenter, View.OnClickListener onClickListener, Bundle params) {
         this.items = new ArrayList<>(items);
         this.classPresenter = classPresenter;
         this.context = context;
         this.params = params;
         this.onClickListener = onClickListener;
+    }
+
+    public Bundle getParams() {
+        return params;
     }
 
     public void setParams(Bundle params) {
@@ -45,17 +49,13 @@ public class GenericRecyclerAdapter<E> extends RecyclerView.Adapter<ViewPresente
         notifyDataSetChanged();
     }
 
-    public Bundle getParams() {
-        return params;
-    }
-
     @Override
-    public ViewPresenterHolder<E> onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ItemPresenterHolder<E> onCreateViewHolder(ViewGroup parent, int viewType) {
         return newPresenter(parent);
     }
 
     @Override
-    public void onBindViewHolder(ViewPresenterHolder<E> holder, int position) {
+    public void onBindViewHolder(ItemPresenterHolder<E> holder, int position) {
         if (paramsInvalidated) {
             holder.setParams(params);
         }
@@ -70,11 +70,11 @@ public class GenericRecyclerAdapter<E> extends RecyclerView.Adapter<ViewPresente
         return items.size();
     }
 
-    public ViewPresenterHolder<E> newPresenter(ViewGroup parent) {
+    public ItemPresenterHolder<E> newPresenter(ViewGroup parent) {
         try {
-            ViewPresenter<E> viewPresenter = classPresenter.newInstance();
-            viewPresenter.initViewPresenter(context, parent, params, onClickListener);
-            return new ViewPresenterHolder<>(viewPresenter);
+            ItemPresenter<E> itemPresenter = classPresenter.newInstance();
+            itemPresenter.initViewPresenter(context, parent, params, onClickListener);
+            return new ItemPresenterHolder<>(itemPresenter);
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
@@ -89,13 +89,13 @@ public class GenericRecyclerAdapter<E> extends RecyclerView.Adapter<ViewPresente
         notifyDataSetChanged();
     }
 
+    public List<E> getItems() {
+        return items;
+    }
+
     public void setItems(Collection<E> items) {
         this.items = new ArrayList<>(items);
         notifyDataSetChanged();
-    }
-
-    public List<E> getItems() {
-        return items;
     }
 
     public E getItem(int position) {

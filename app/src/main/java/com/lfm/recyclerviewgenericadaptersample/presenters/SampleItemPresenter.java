@@ -9,12 +9,12 @@ import android.widget.TextView;
 
 import com.lfm.recyclerviewgenericadaptersample.R;
 import com.lfm.recyclerviewgenericadaptersample.models.SampleItem;
-import com.lfm.rvgenadapter.ViewPresenter;
+import com.lfm.rvgenadapter.ItemPresenter;
 
 /**
  * Created by mogwai on 13/10/15.
  */
-public class SampleItemPresenter extends ViewPresenter<SampleItem> {
+public class SampleItemPresenter extends ItemPresenter<SampleItem> {
     private View view;
 
     private TextView itemSampleTitreView;
