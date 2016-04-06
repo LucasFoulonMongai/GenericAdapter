@@ -37,4 +37,11 @@ public class ItemPresenterHolder<E> extends RecyclerView.ViewHolder {
         itemPresenter.onNewOnClickListener(onClickListener);
     }
 
+    public void onAttached() {
+        itemPresenter.onAttached();
+    }
+
+    public void onDetached() {
+        itemPresenter.onDetached();
+    }
 }

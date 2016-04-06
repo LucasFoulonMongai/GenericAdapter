@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by mogwai on 13/10/15.
  */
-public class GenericRecyclerAdapter<E> extends RecyclerView.Adapter<ItemPresenterHolder<E>> {
+public class GenericAdapter<E> extends RecyclerView.Adapter<ItemPresenterHolder<E>> {
 
     private View.OnClickListener onClickListener;
     private List<E> items;
@@ -23,15 +23,15 @@ public class GenericRecyclerAdapter<E> extends RecyclerView.Adapter<ItemPresente
     private boolean paramsInvalidated = false;
     private boolean onClickInvalidated = false;
 
-    public GenericRecyclerAdapter(Context context, Collection<E> items, Class<? extends ItemPresenter<E>> classPresenter) {
+    public GenericAdapter(Context context, Collection<E> items, Class<? extends ItemPresenter<E>> classPresenter) {
         this(context, items, classPresenter, null, null);
     }
 
-    public GenericRecyclerAdapter(Context context, Collection<E> items, Class<? extends ItemPresenter<E>> classPresenter, View.OnClickListener onClickListener) {
+    public GenericAdapter(Context context, Collection<E> items, Class<? extends ItemPresenter<E>> classPresenter, View.OnClickListener onClickListener) {
         this(context, items, classPresenter, onClickListener, null);
     }
 
-    public GenericRecyclerAdapter(Context context, Collection<E> items, Class<? extends ItemPresenter<E>> classPresenter, View.OnClickListener onClickListener, Bundle params) {
+    public GenericAdapter(Context context, Collection<E> items, Class<? extends ItemPresenter<E>> classPresenter, View.OnClickListener onClickListener, Bundle params) {
         this.items = new ArrayList<>(items);
         this.classPresenter = classPresenter;
         this.context = context;
@@ -100,5 +100,17 @@ public class GenericRecyclerAdapter<E> extends RecyclerView.Adapter<ItemPresente
 
     public E getItem(int position) {
         return items.get(position);
+    }
+
+    @Override
+    public void onViewAttachedToWindow(ItemPresenterHolder<E> holder) {
+        super.onViewAttachedToWindow(holder);
+        holder.onAttached();
+    }
+
+    @Override
+    public void onViewDetachedFromWindow(ItemPresenterHolder<E> holder) {
+        super.onViewDetachedFromWindow(holder);
+        holder.onDetached();
     }
 }

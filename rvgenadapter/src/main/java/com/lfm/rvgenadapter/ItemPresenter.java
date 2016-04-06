@@ -39,4 +39,11 @@ public abstract class ItemPresenter<E> {
     public void onNewOnClickListener(View.OnClickListener onClickListener) {
 
     }
+
+    public void onAttached() {
+    }
+
+    public void onDetached() {
+    }
+
 }

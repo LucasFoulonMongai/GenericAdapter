@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
-import com.lfm.rvgenadapter.GenericRecyclerAdapter;
+import com.lfm.rvgenadapter.GenericAdapter;
 import com.lfm.recyclerviewgenericadaptersample.R;
 import com.lfm.recyclerviewgenericadaptersample.models.SampleItem;
 import com.lfm.recyclerviewgenericadaptersample.presenters.SampleItemPresenter;
@@ -30,7 +30,7 @@ public class SampleListActivity extends AppCompatActivity {
 
         }
     };
-    private GenericRecyclerAdapter<SampleItem> sampleAdapter;
+    private GenericAdapter<SampleItem> sampleAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +58,7 @@ public class SampleListActivity extends AppCompatActivity {
             Bundle params = new Bundle();
             params.putInt("color", Color.RED);
 
-            sampleAdapter = new GenericRecyclerAdapter<>(this, sampleDatas, SampleItemPresenter.class, onSampleItemClickListener, params);
+            sampleAdapter = new GenericAdapter<>(this, sampleDatas, SampleItemPresenter.class, onSampleItemClickListener, params);
             sampleRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
             sampleRecyclerView.setAdapter(sampleAdapter);
         } else {
