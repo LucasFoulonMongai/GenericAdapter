@@ -1,13 +1,13 @@
-package com.lfm.recyclerviewgenericadaptersample.models;
+package com.lfm.recyclerviewgenericadaptersample.model;
 
 /**
- * Created by mogwai on 13/10/15.
+ * Created by Lucas FOULON-MONGAI, github.com/LucasFoulonMongai
  */
-public class SampleItem {
+public class SampleModel {
     private String titre;
     private String description;
 
-    public SampleItem(String titre, String description){
+    public SampleModel(String titre, String description) {
         this.titre = titre;
         this.description = description;
     }
